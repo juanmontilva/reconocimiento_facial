@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Administrar Personas</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; background-color: #f0f0f0; }
+        h1 { color: #333; }
+        .container { background-color: white; padding: 20px; border-radius: 10px; display: inline-block; }
+        nav a { margin: 0 15px; text-decoration: none; color: #007bff; font-size: 1.2em; }
+        .messages { list-style: none; padding: 0; }
+        .messages li { background-color: #d4edda; color: #155724; padding: 10px; margin-bottom: 10px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Administrar Personas</h1>
+    <nav>
+        <a href="{{ url_for('index') }}">Ver Stream</a>
+        <a href="{{ url_for('admin') }}">Administrar Personas</a>
+    </nav>
+
+    <!-- Mostrar mensajes flash -->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class=messages>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <div class="container">
+        <h2>Añadir Nueva Persona</h2>
+        <form action="{{ url_for('add_person') }}" method="post" enctype="multipart/form-data">
+            <p>
+                Nombre: <input type="text" name="name" required>
+            </p>
+            <p>
+                Foto: <input type="file" name="photo" accept=".png,.jpg,.jpeg" required>
+            </p>
+            <p>
+                <input type="submit" value="Añadir Persona">
+            </p>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reconocimiento Facial en Tiempo Real</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; background-color: #f0f0f0; }
+        h1 { color: #333; }
+        #bg { border: 5px solid #333; border-radius: 10px; }
+        nav a { margin: 0 15px; text-decoration: none; color: #007bff; font-size: 1.2em; }
+    </style>
+</head>
+<body>
+    <h1>Reconocimiento Facial en Tiempo Real</h1>
+    <nav>
+        <a href="{{ url_for('index') }}">Ver Stream</a>
+        <a href="{{ url_for('admin') }}">Administrar Personas</a>
+    </nav>
+    <br>
+    <img id="bg" src="{{ url_for('video_feed') }}">
+</body>
+</html>

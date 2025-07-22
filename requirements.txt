@@ -23,3 +23,5 @@ python-dateutil
 scipy
 six
 sounddevice
+Flask
+face_recognition
